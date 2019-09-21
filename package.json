@@ -1,0 +1,58 @@
+{
+  "name": "@kv-orm/cf-workers",
+  "version": "0.0.1",
+  "description": "A Cloudflare Workers KV datastore plugin for kv-orm",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "npm run test -- --coverage",
+    "clean": "rm -rf dist/",
+    "clean:node": "rm -rf package-lock.json node_modules/",
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.ts' && prettier -c '*.md'",
+    "lint:fix": "eslint --fix 'src/**/*.ts' && prettier --write '*.md'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kv-orm/cf-workers.git"
+  },
+  "keywords": [
+    "kv-orm",
+    "cloudflare",
+    "datastore",
+    "workers",
+    "cf-workers"
+  ],
+  "author": {
+    "name": "Greg Brimble",
+    "email": "developer@gregbrimble.com",
+    "url": "https://gregbrimble.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kv-orm/cf-workers/issues"
+  },
+  "homepage": "https://github.com/kv-orm/cf-workers#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.6.2"
+  },
+  "peerDependencies": {
+    "@kv-orm/core": "^0.0.1"
+  }
+}
