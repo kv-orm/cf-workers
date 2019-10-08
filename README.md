@@ -6,7 +6,7 @@
   <a href="https://lgtm.com/projects/g/kv-orm/cf-workers/alerts/" target="_blank">
     <img alt="LGTM Alerts" src="https://img.shields.io/lgtm/alerts/g/kv-orm/cf-workers.svg?logo=lgtm">
   </a>
-  <a href="" target="_blank">
+  <a href="https://codecov.io/gh/kv-orm/cf-workers" target="_blank">
     <img alt="Codecov" src="https://codecov.io/gh/kv-orm/cf-workers/branch/master/graph/badge.svg">
   </a>
   <a href="https://lgtm.com/projects/g/kv-orm/cf-workers/context:javascript" target="_blank">
