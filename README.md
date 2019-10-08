@@ -19,6 +19,8 @@
 
 # Usage
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kv-orm/cf-workers.svg)](https://greenkeeper.io/)
+
 ## Install
 
 ```sh
