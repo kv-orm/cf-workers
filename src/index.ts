@@ -15,16 +15,16 @@ export class CloudflareWorkersKVDatastore extends Datastore {
     super(keySeparator)
   }
 
-  read(key: Key): Promise<Value> {
-    return this.namespace.get(key)
+  async read(key: Key): Promise<Value> {
+    return await this.namespace.get(key)
   }
 
-  write(key: Key, value: Value): Promise<void> {
-    return this.namespace.put(key, value)
+  async write(key: Key, value: Value): Promise<void> {
+    return await this.namespace.put(key, value)
   }
 
-  delete(key: Key): Promise<void> {
-    return this.namespace.delete(key)
+  async delete(key: Key): Promise<void> {
+    return await this.namespace.delete(key)
   }
 
   async search({
