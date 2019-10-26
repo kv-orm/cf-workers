@@ -12,6 +12,8 @@ jobs:
           fetch-depth: 1
       - name: Install
         uses: docker://node:10
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           entrypoint: npm
           args: install
