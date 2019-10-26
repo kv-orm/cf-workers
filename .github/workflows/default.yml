@@ -11,9 +11,9 @@ jobs:
         with:
           fetch-depth: 1
       - name: Install
-        uses: actions/npm@1.0.0
+        uses: docker://node:10
         with:
-          fetch-depth: 1
+          entrypoint: npm
           args: install
       - name: Lint
         uses: actions/npm@1.0.0
