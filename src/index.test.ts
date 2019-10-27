@@ -1,7 +1,6 @@
-import { KVNamespace } from '@cloudflare/workers-types'
-import Cloudworker from '@dollarshaveclub/cloudworker'
-
 import { CloudflareWorkersKVDatastore } from './index'
+import { Datastore, SearchStrategy } from '@kv-orm/core'
+import { namespace } from './namespace.test'
 
 describe(`the universe`, () => {
   it(`can do math`, () => {
@@ -10,12 +9,25 @@ describe(`the universe`, () => {
 })
 
 describe(`CloudflareWorkersKVDatastore`, () => {
-  it(`can be initialized, written to, and read from`, async () => {
-    const namespace = new (Cloudworker as any).KeyValueStore() as KVNamespace
+  let datastore: Datastore
 
-    const datastore = new CloudflareWorkersKVDatastore(namespace)
-
+  beforeEach(async () => {
+    datastore = new CloudflareWorkersKVDatastore(namespace)
     await datastore.write(`key`, `value`)
+  })
+
+  it(`supports writes and reads`, async () => {
     expect(await datastore.read(`key`)).toEqual(`value`)
+  })
+
+  it(`supports deletes`, async () => {
+    await datastore.delete(`key`)
+    expect(await datastore.read(`key`)).toBeNull()
+  })
+
+  it(`supports searches`, async () => {
+    expect(
+      await datastore.search({ term: `k`, strategy: SearchStrategy.prefix })
+    ).toEqual({ keys: [`key`], hasNextPage: false, cursor: `0` })
   })
 })
