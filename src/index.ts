@@ -29,7 +29,7 @@ export class CloudflareWorkersKVDatastore extends Datastore {
 
   async search({
     term,
-    strategy = SearchStrategy.prefix,
+    strategy,
     first = Infinity,
     after,
   }: SearchOptions): Promise<SearchResult> {
