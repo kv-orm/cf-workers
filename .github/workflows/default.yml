@@ -13,7 +13,7 @@ jobs:
       - name: Setup Installation
         run: echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> ./.npmrc
       - name: Install
-        uses: docker://node:10
+        uses: docker://node:12
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
