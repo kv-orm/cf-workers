@@ -1,6 +1,6 @@
 {
   "name": "@kv-orm/cf-workers",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Cloudflare Workers KV datastore plugin for kv-orm",
   "main": "dist/index",
   "types": "dist/index",
