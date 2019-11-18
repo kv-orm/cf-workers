@@ -32,7 +32,7 @@
   </a>
 </p>
 
-> A Cloudflare Workers KV datastore plugin for kv-orm.
+A Cloudflare Workers KV datastore plugin for [kv-orm](https://github.com/kv-orm/core).
 
 ## Author
 
@@ -58,7 +58,7 @@ npm install --save @kv-orm/core @kv-orm/cf-workers
 npm install --save-dev @cloudflare/workers-types
 ```
 
-## Usage
+## Quick Start
 
 ```typescript
 import { KVNamespace } from '@cloudflare/workers-types'
@@ -89,7 +89,7 @@ npm install
 ## Run tests
 
 ```sh
-npm run lint  # 'npm run format' will automatically fix most problems
+npm run lint  # 'npm run lint:fix' will automatically fix most problems
 npm test
 ```
 
