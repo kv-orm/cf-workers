@@ -2,7 +2,6 @@ pull_request_rules:
   - name: Automatically merge Greenkeeper PRs on CI success
     conditions:
       - status-success=Test
-      - status-success=ci/codesandbox
       - status-success=greenkeeper/verify
       - author=greenkeeper[bot]
     actions:
@@ -17,3 +16,7 @@ pull_request_rules:
     actions:
       merge:
         method: merge
+  - name: Delete head branch after merging PR
+    conditions: []
+    actions:
+      delete_head_branch: {}
