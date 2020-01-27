@@ -46,7 +46,7 @@
     "@cloudflare/workers-types": "1.0.6",
     "@dollarshaveclub/cloudworker": "^0.1.2",
     "@kv-orm/core": "0.0.2",
-    "@types/jest": "24.0.25",
+    "@types/jest": "25.1.0",
     "@typescript-eslint/eslint-plugin": "2.9.0",
     "@typescript-eslint/parser": "2.18.0",
     "babel-jest": "24.9.0",
