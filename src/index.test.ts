@@ -1,6 +1,6 @@
-import { CloudflareWorkersKVDatastore } from './index'
 import { Datastore, SearchStrategy } from '@kv-orm/core'
-import { namespace } from './namespace.test'
+import { CloudflareWorkersKVDatastore } from './index'
+import { namespace } from './namespace.testhelpers'
 
 describe(`the universe`, () => {
   it(`can do math`, () => {

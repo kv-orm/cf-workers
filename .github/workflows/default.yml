@@ -7,20 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1.0.0
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
           fetch-depth: 1
-      - name: Setup Installation
-        run: echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> ./.npmrc
+          registry-url: 'https://npm.pkg.github.com'
       - name: Install
-        uses: docker://node:12
+        run: npm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          entrypoint: npm
-          args: install
-      - name: Cleanup Installation
-        run: rm -rf ./.npmrc
       - name: Lint
         run: npm run lint
       - name: Test

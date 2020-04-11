@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import Cloudworker from '@dollarshaveclub/cloudworker'
 import { KVNamespace } from '@cloudflare/workers-types'
+import Cloudworker from '@dollarshaveclub/cloudworker'
 
 const LIST_MAX_LIMIT = 1000
 
 const namespace = new (Cloudworker as any).KeyValueStore() as KVNamespace
-namespace.list = async function(
+namespace.list = async function (
   this,
   {
     limit = 1000,
@@ -44,7 +44,7 @@ namespace.list = async function(
   ).toString()
 
   return Promise.resolve({
-    keys: keys.map(key => ({
+    keys: keys.map((key) => ({
       name: key,
     })),
     list_complete,
@@ -53,7 +53,3 @@ namespace.list = async function(
 }
 
 export { namespace }
-
-describe(`list`, () => {
-  it(`works`, () => {})
-})

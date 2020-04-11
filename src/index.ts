@@ -39,7 +39,7 @@ export class CloudflareWorkersKVDatastore extends Datastore {
     })
 
     return {
-      keys: response.keys.map(key => key.name),
+      keys: response.keys.map((key) => key.name),
       hasNextPage: !response.list_complete,
       cursor: response.cursor,
     }
