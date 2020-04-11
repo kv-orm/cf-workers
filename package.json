@@ -58,7 +58,7 @@
     "prettier": "2.0.4",
     "rimraf": "3.0.2",
     "ts-jest": "25.3.1",
-    "typescript": "3.6.2"
+    "typescript": "3.8.3"
   },
   "peerDependencies": {
     "@kv-orm/core": "0.0.2"
