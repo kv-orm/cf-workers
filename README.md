@@ -1,10 +1,13 @@
 <h1 align="center">Welcome to @kv-orm/cf-workers 👋</h1>
 <p>
-  <a href="https://github.com/kv-orm/cf-workers/actions" target="_blank">
+  <a href="https://github.com/kv-orm/cf-workers/actions?query=workflow%3ATest" target="_blank">
     <img alt="GitHub Actions Checks" src="https://github.com/kv-orm/cf-workers/workflows/Test/badge.svg" />
   </a>
   <a href="https://lgtm.com/projects/g/kv-orm/cf-workers/alerts/" target="_blank">
     <img alt="LGTM Alerts" src="https://img.shields.io/lgtm/alerts/g/kv-orm/cf-workers.svg?logo=lgtm&style=plastic" />
+  </a>
+  <a href="https://snyk.io/test/github/kv-orm/cf-workers?targetFile=package.json" target="_blank">
+    <img alt="Synk Vulnerabilities" src="https://snyk.io/test/github/kv-orm/cf-workers/badge.svg?targetFile=package.json" />
   </a>
   <a href="https://codecov.io/gh/kv-orm/cf-workers" target="_blank">
     <img alt="Codecov" src="https://img.shields.io/codecov/c/github/kv-orm/cf-workers?logo=codecov&style=plastic" />
@@ -20,9 +23,6 @@
   </a>
   <a href="https://github.com/kv-orm/cf-workers/blob/master/LICENSE" target="_blank">
     <img alt="License" src="https://img.shields.io/github/license/kv-orm/cf-workers?style=plastic" />
-  </a>
-  <a href="https://greenkeeper.io" target="_blank">
-    <img alt="Greenkeeper" src="https://badges.greenkeeper.io/kv-orm/cf-workers.svg?style=plastic" />
   </a>
   <a href="https://www.typescriptlang.org/" target="_blank">
     <img alt="Types" src="https://img.shields.io/npm/types/kv-orm.svg?style=plastic" />
