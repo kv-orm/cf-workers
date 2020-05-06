@@ -77,6 +77,26 @@ class MyEntity {
 }
 ```
 
+## Options
+
+The constructor can also take a couple of options:
+
+- `keySeparator` defaults to a colon, `:`
+- `optionsGenerator`, for a given `key` and `value` can return options to pass to the KV Namespace `put` method: `expiration` or `expirationTtl`. More information about expiring data can be found on [the official Cloudflare documentation](https://developers.cloudflare.com/workers/reference/apis/kv/#creating-expiring-keys).
+
+```typescript
+const datastore = new CloudflareWorkersKVDatastore(myKVNamespaceBinding, {
+  keySeparator: ':',
+  optionsGenerator: (key, value) => ({
+    expirationTtl: 120, // Or, alternatively, `expiration`
+  }),
+})
+```
+
+In this particular example, all data will expire after 120 seconds.
+
+**Note**: this expiration only affects data from _new_ read/search operations. Data already in the memory cache will persist until purged (if using within a Worker context, this is until the end of the single request).
+
 # Development
 
 ## Clone and Install Dependencies

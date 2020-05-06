@@ -8,10 +8,28 @@ import {
 } from '@kv-orm/core'
 import { KVNamespace } from '@cloudflare/workers-types'
 
+type KVOptions =
+  | {
+      expiration: string | number
+    }
+  | {
+      expirationTtl: string | number
+    }
+  | {}
+
+type OptionsGenerator = (key: Key, value: Value) => KVOptions
+
 export class CloudflareWorkersKVDatastore extends Datastore {
   public searchStrategies = [SearchStrategy.prefix]
+  private optionsGenerator?: OptionsGenerator
 
-  public constructor(private namespace: KVNamespace, keySeparator?: string) {
+  public constructor(
+    private namespace: KVNamespace,
+    {
+      optionsGenerator,
+      keySeparator,
+    }: { optionsGenerator?: OptionsGenerator; keySeparator?: string } = {}
+  ) {
     super({ keySeparator })
   }
 
@@ -20,7 +38,10 @@ export class CloudflareWorkersKVDatastore extends Datastore {
   }
 
   _write(key: Key, value: Value): Promise<void> {
-    return this.namespace.put(key, value)
+    const options = this.optionsGenerator
+      ? this.optionsGenerator(key, value)
+      : {}
+    return this.namespace.put(key, value, options)
   }
 
   _delete(key: Key): Promise<void> {

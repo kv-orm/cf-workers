@@ -12,7 +12,10 @@ describe(`CloudflareWorkersKVDatastore`, () => {
   let datastore: Datastore
 
   beforeEach(async () => {
-    datastore = new CloudflareWorkersKVDatastore(namespace)
+    datastore = new CloudflareWorkersKVDatastore(namespace, {
+      keySeparator: '-',
+      optionsGenerator: () => ({ expirationTtl: 120 }),
+    })
     await datastore.write(`key`, `value`)
   })
 
