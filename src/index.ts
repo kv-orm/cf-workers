@@ -5,23 +5,23 @@ import {
   Datastore,
   SearchOptions,
   SearchResult,
-} from '@kv-orm/core'
-import { KVNamespace } from '@cloudflare/workers-types'
+} from "@kv-orm/core";
+import { KVNamespace } from "@cloudflare/workers-types";
 
 type KVOptions =
   | {
-      expiration: string | number
+      expiration: string | number;
     }
   | {
-      expirationTtl: string | number
+      expirationTtl: string | number;
     }
-  | {}
+  | {};
 
-type OptionsGenerator = (key: Key, value: Value) => KVOptions
+type OptionsGenerator = (key: Key, value: Value) => KVOptions;
 
 export class CloudflareWorkersKVDatastore extends Datastore {
-  public searchStrategies = [SearchStrategy.prefix]
-  private optionsGenerator?: OptionsGenerator
+  public searchStrategies = [SearchStrategy.prefix];
+  private optionsGenerator?: OptionsGenerator;
 
   public constructor(
     private namespace: KVNamespace,
@@ -30,22 +30,22 @@ export class CloudflareWorkersKVDatastore extends Datastore {
       keySeparator,
     }: { optionsGenerator?: OptionsGenerator; keySeparator?: string } = {}
   ) {
-    super({ keySeparator })
+    super({ keySeparator });
   }
 
   _read(key: Key): Promise<Value> {
-    return this.namespace.get(key)
+    return this.namespace.get(key);
   }
 
   _write(key: Key, value: Value): Promise<void> {
     const options = this.optionsGenerator
       ? this.optionsGenerator(key, value)
-      : {}
-    return this.namespace.put(key, value, options)
+      : {};
+    return this.namespace.put(key, value, options);
   }
 
   _delete(key: Key): Promise<void> {
-    return this.namespace.delete(key)
+    return this.namespace.delete(key);
   }
 
   async _search({
@@ -57,12 +57,12 @@ export class CloudflareWorkersKVDatastore extends Datastore {
       prefix: term,
       limit: first,
       cursor: after,
-    })
+    });
 
     return {
       keys: response.keys.map((key) => key.name),
       hasNextPage: !response.list_complete,
       cursor: response.cursor,
-    }
+    };
   }
 }

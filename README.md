@@ -61,15 +61,15 @@ npm install --save-dev @cloudflare/workers-types
 ## Quick Start
 
 ```typescript
-import { KVNamespace } from '@cloudflare/workers-types'
-import { CloudflareWorkersKVDatastore } from '@kv-orm/cf-workers'
-import { Entity } from '@kv-orm/core'
+import { KVNamespace } from "@cloudflare/workers-types";
+import { CloudflareWorkersKVDatastore } from "@kv-orm/cf-workers";
+import { Entity } from "@kv-orm/core";
 
 declare global {
-  const myKVNamespaceBinding: KVNamespace
+  const myKVNamespaceBinding: KVNamespace;
 }
 
-const datastore = new CloudflareWorkersKVDatastore(myKVNamespaceBinding)
+const datastore = new CloudflareWorkersKVDatastore(myKVNamespaceBinding);
 
 @Entity({ datastore })
 class MyEntity {
@@ -86,11 +86,11 @@ The constructor can also take a couple of options:
 
 ```typescript
 const datastore = new CloudflareWorkersKVDatastore(myKVNamespaceBinding, {
-  keySeparator: ':',
+  keySeparator: ":",
   optionsGenerator: (key, value) => ({
     expirationTtl: 120, // Or, alternatively, `expiration`
   }),
-})
+});
 ```
 
 In this particular example, all data will expire after 120 seconds.

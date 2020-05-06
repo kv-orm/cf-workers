@@ -13,8 +13,8 @@
     "clean": "rimraf dist/",
     "clean:node": "rimraf package-lock.json node_modules/",
     "build": "tsc",
-    "lint": "prettier -c 'src/**/*.ts'",
-    "lint:fix": "prettier --write 'src/**/*.ts'"
+    "lint": "prettier -c 'src/**/*.ts' 'README.md'",
+    "lint:fix": "prettier --write 'src/**/*.ts' 'README.md'"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
