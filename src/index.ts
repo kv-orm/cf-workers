@@ -31,6 +31,7 @@ export class CloudflareWorkersKVDatastore extends Datastore {
     }: { optionsGenerator?: OptionsGenerator; keySeparator?: string } = {}
   ) {
     super({ keySeparator });
+    this.optionsGenerator = optionsGenerator;
   }
 
   _read(key: Key): Promise<Value> {
